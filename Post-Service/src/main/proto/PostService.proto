@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.postservice.server;
+
+message PostRequest {
+  int32 userId = 1;
+}
+
+message Post {
+  int32 id = 1;
+  string subject = 2;
+  string content = 3;
+  int32 userId = 4;
+}
+
+message PostResponse {
+  repeated Post post = 1;
+}
+
+service PostService {
+  rpc findPostsByUserId(PostRequest) returns (PostResponse);
+}

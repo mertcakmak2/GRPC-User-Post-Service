@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.userservice.server;
+
+message UserRequest {
+  int32 userId = 1;
+}
+
+message UserResponse {
+  int32 id = 1;
+  string name = 2;
+}
+
+service UserService {
+  rpc findUserById(UserRequest) returns (UserResponse);
+}
